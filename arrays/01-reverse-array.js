@@ -8,18 +8,32 @@
  * Space Complexity: O(1)
  */
 
-// Solution
+// Solution with same array
+console.log(reverseArray([1,2,3,4,5]),"original array");
 
-function reverseArray(arr) {
-    let left = 0;
-    let right = arr.length - 1;
-
-    while (left < right) {
-        [arr[left], arr[right]] = [arr[right], arr[left]];
-        left++;
-        right--;
+function reverseArray(arr){
+    let start = 0;
+    let end = arr.length - 1;
+    while(start < end)
+    {
+        [arr[end],arr[start]] = [arr[start],arr[end]];
+        start++;
+        end--;
     }
     return arr;
 }
 
-console.log(reverseArray([1,2,3,4,5]));
+// solution with copy array
+function reverseArraycopy(arr){
+    let copy = [...arr];
+    let start = 0;
+    let end = copy.length - 1;
+    while(start < end)
+    {
+        [copy[end],copy[start]] = [copy[start],copy[end]];
+        start++;
+        end--;
+    }
+    return copy;
+}
+console.log(reverseArraycopy([1,2,3,4,5]),"copy arrays")
